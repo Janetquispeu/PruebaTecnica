@@ -55,6 +55,7 @@ function ordenarAsc(a){
 			}	
 		}
 	}
+	console.log("sale:  "+a);
 }
 
 // function imprimir(a){

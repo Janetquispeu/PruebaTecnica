@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand");
 
 body{
-	/*background-image: url("../img/fondo.jpg");*/
+	background-image: url("../img/fondo4.jpg");
   background-repeat:no-repeat;
   background-size: cover;
 }
@@ -21,11 +21,11 @@ section{
 	margin-top: 5%;
 }
 p, .result-text{
-	color: black;
+	color: white;
 	margin-left: 2%;
 }
 label{
-	color: black;
+	color: white;
 	font-weight: normal;
 }
 .label-text{
@@ -53,11 +53,11 @@ label{
 .input-numbers{
 	width: 5%;
 	margin:2% 2%;
-	color: black;
+	color: white;
 	border-top: none;
   border-left: none;
   border-right: none;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid white;
   background: transparent;
 }
 .results{
@@ -67,7 +67,6 @@ label{
 	padding-top: 1%;
 	text-align: center;
 	display: inline-block;
-	vertical-align: middle;
 	-webkit-transition-delay: 30s; /* Safari */
   transition-delay: 30s;
   border-radius: 100%;

@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	var $btnOrdenar=$("#ordenar");
 	var $btnAdd=$("#btn-add");
 	var $btnClear=$("#btn-clear");
 	var $btnEdit=$("#btn-edit");
@@ -10,12 +11,13 @@ $(document).ready(function(){
 	$inputLength.keydown(function(e){
 		var index=0;
 		var array=[];
-		var $inputLengthNumbers=parseInt($("#input-length-numbers").val());
+		var $inputLengthNumbers=parseInt($($inputLength).val());
 		if(e.keyCode==13){
 			createInput($inputLengthNumbers);
 			$(this).attr("disabled", true);
 			$(this).parent().next().children().attr("disabled", true);
-			$("#ordenar").click(function(){
+
+			$btnOrdenar.click(function(){
 				var $resultText=$(".result-text");
 				$(this).attr("disabled", true);
 				leerArray($inputLengthNumbers, index,array);
@@ -23,23 +25,25 @@ $(document).ready(function(){
 			  $($resultText).show();
 				imprimir(array);
 			});
-			$("#input-length-numbers").val(" ");
 
 			if($inputLengthNumbers<0 || $inputLengthNumbers==0){
 				$(this).attr("disabled", false);
 				$(this).parent().next().children().attr("disabled", false);
 			}
+
+			$($inputLength).val(" ");
 		}
 	});
 
 	$btnAdd.click(function(){
-		var $inputLengthNumbers=parseInt($("#input-length-numbers").val());
+		var $inputLengthNumbers=parseInt($($inputLength).val());
 		var index=0;
 		var array=[];
 
 		$(this).attr("disabled", true);
 		createInput($inputLengthNumbers);
-		$("#ordenar").click(function(){
+
+		$btnOrdenar.click(function(){
 			var $resultText=$(".result-text");
 			$(this).attr("disabled", true);
 			leerArray($inputLengthNumbers, index,array);
@@ -47,7 +51,8 @@ $(document).ready(function(){
 		  $($resultText).show();
 			imprimir(array);
 		});
-		$("#input-length-numbers").val(" ");
+
+		$($inputLength).val(" ");
 	});
 
 	$btnClear.click(function(){
@@ -78,10 +83,10 @@ $(document).ready(function(){
 			}	
 		}else if($inputLengthNumbers==0){
 			alert("Ingrese numero entero positivo ");
-			$("#btn-add").attr("disabled", false);
+			$($btnAdd).attr("disabled", false);
 		}else{
 			alert("Ingrese numero entero positivo");
-			$("#btn-add").attr("disabled", false);
+			$($btnAdd).attr("disabled", false);
 		}
 	}
 
@@ -94,7 +99,6 @@ $(document).ready(function(){
 			array[index]=$numberValue;
 			index++;
 	  }
-	  console.log("array"+array);
 	}
 
 	/*Ordenar número*/

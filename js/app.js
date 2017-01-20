@@ -1,24 +1,25 @@
 $(document).ready(function(){
 	var $btnAdd=$("#btn-add");
-	var $container=$(".container-numbers");
+	var $btnClear=$("#btn-clear");
+	var $btnEdit=$("#btn-edit");
+	var $containerNumbers=$(".container-numbers");
+	var $containerResults=$(".container-results");
+	var $inputNumbers=$(".input-numbers");
 
 	$btnAdd.click(function(){
 		var $inputLengthNumbers=parseInt($("#input-length-numbers").val());
 		var count=0 ;
 		var index=0;
-		var index1=0;
 		var array=[];
 
-		/* Crear inputs de acuerdo a la cantidad de numeros a ordenar*/	
-		if (/^([0-9])*$/.test($inputLengthNumbers)) {
-			// var $containerNumber="<div class='containerNumber'>"+$inputLengthNumbers+"</div>";
-			// $($containerNumber).appendTo($container);
-
+		/* Crear inputs de acuerdo a la cantidad de numeros a ordenar y validar si la cantidad de numero es un entero*/	
+		if (/^([0-9])*$/.test($inputLengthNumbers) && $inputLengthNumbers!=0 && $($inputLengthNumbers).length!=0) {
+			$(this).attr("disabled", true);
 			while($inputLengthNumbers!=count){	
-				var $inputNumbers="<input type='text' id='input-numbers"+count+ "' class='input-numbers' maxlength='10'>";
+				var $inputNumbers="<input type='number' id='input-numbers"+count+ "' class='input-numbers' maxlength='10'>";
 				var idCount="#input-numbers"+count;
 
-				$($inputNumbers).appendTo($container);
+				$($inputNumbers).appendTo($containerNumbers);
 				count++;
 
 				/*Saltar cursor*/
@@ -30,41 +31,38 @@ $(document).ready(function(){
 				  }   
 				});
 			}	
+		}else if($inputLengthNumbers==0){
+			alert("Ingrese numero");
 		}else{
 			alert("Ingrese numero");
 		}
 
-		// while($inputLengthNumbers!=index1){
-		// 	var $inputNumbers="<input type='text' id='input-numbers"+count+ "' maxlength='3'>";
-		// 	var id1="#input-numbers"+index1;
-		// 	$(id1).keydown(function(){
-		// 		var $numberValue1=parseInt($(id1).val());
-		// 		if(/^([0-9])*$/.test($numberValue1)){
-		// 			alert("bien")
-		// 		}else{
-		// 			alert("Ingrese numero");
-		// 		}
-		// 		index1++;
-		// 	});
-		// }
-
 		$("#ordenar").click(function(){
-			var $containerNumbers=$(".container-numbers");
 			var $resultText=$(".result-text");
-			while($inputLengthNumbers!=index){
-				var id="#input-numbers"+index;
-				var $numberValue=parseInt($(id).val());
-				array[index]=$numberValue;
-				index++;
-		  }
+			$(this).attr("disabled", true);
+			leerArray($inputLengthNumbers, index,array);
 		  ordenarAsc(array);
-		  $($containerNumbers).hide();
 		  $($resultText).show();
 			imprimir(array);
+			$(this).attr("disabled", false);
 		});
 		
 		$("#input-length-numbers").val(" ");
 	});
+
+	$btnClear.click(function(){
+		location.reload();
+	});
+
+	// funcion Leer Array
+	function leerArray(lengthArray,index,array){
+		while(lengthArray!=index){
+			var id="#input-numbers"+index;
+			var $numberValue=parseInt($(id).val());
+			array[index]=$numberValue;
+			index++;
+	  }
+	}
 
 	/*Ordenar número*/
 	function ordenarAsc(a){
@@ -82,7 +80,6 @@ $(document).ready(function(){
 
 	/*imprimir de manera ascendente*/
 	function imprimir(a){
-		var $containerResults=$(".container-results");
 		for(i=0;i<(a.length);i++){
 			var results="<div class='results animated flash'>"+a[i]+"</div>";
 			$(results).appendTo($containerResults);

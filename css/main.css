@@ -69,6 +69,14 @@ label{
 .result-text{
 	display: none;
 }
+#btn-clear{
+	margin-left: 7%;
+}
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 
 /*Responsive*/
 @media (min-width: 481px) and (max-width: 768px) {
@@ -94,7 +102,7 @@ label{
 	.input-numbers, .results{
 		margin: 5% 5%;
 	}
-	#ordenar{
+	#ordenar, #btn-clear{
 		margin-top: 5%;
 	}
 

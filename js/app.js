@@ -2,17 +2,62 @@ $(document).ready(function(){
 	var $btnAdd=$("#btn-add");
 	var $btnClear=$("#btn-clear");
 	var $btnEdit=$("#btn-edit");
+	var $inputLength=$("#input-length-numbers");
 	var $containerNumbers=$(".container-numbers");
 	var $containerResults=$(".container-results");
 	var $inputNumbers=$(".input-numbers");
 
+	$inputLength.keydown(function(e){
+		var index=0;
+		var array=[];
+		var $inputLengthNumbers=parseInt($("#input-length-numbers").val());
+		if(e.keyCode==13){
+			createInput($inputLengthNumbers);
+			$(this).attr("disabled", true);
+			$(this).parent().next().children().attr("disabled", true);
+			$("#ordenar").click(function(){
+				var $resultText=$(".result-text");
+				$(this).attr("disabled", true);
+				leerArray($inputLengthNumbers, index,array);
+			  ordenarAsc(array);
+			  $($resultText).show();
+				imprimir(array);
+			});
+			$("#input-length-numbers").val(" ");
+
+			if($inputLengthNumbers<0 || $inputLengthNumbers==0){
+				$(this).attr("disabled", false);
+				$(this).parent().next().children().attr("disabled", false);
+			}
+		}
+	});
+
 	$btnAdd.click(function(){
 		var $inputLengthNumbers=parseInt($("#input-length-numbers").val());
-		var count=0 ;
 		var index=0;
 		var array=[];
 
-		/* Crear inputs de acuerdo a la cantidad de numeros a ordenar y validar si la cantidad de numero es un entero*/	
+		$(this).attr("disabled", true);
+		createInput($inputLengthNumbers);
+		$("#ordenar").click(function(){
+			var $resultText=$(".result-text");
+			$(this).attr("disabled", true);
+			leerArray($inputLengthNumbers, index,array);
+		  ordenarAsc(array);
+		  $($resultText).show();
+			imprimir(array);
+		});
+		$("#input-length-numbers").val(" ");
+	});
+
+	$btnClear.click(function(){
+		location.reload();
+	});
+
+	//funcion crear inputs
+	function createInput($inputLengthNumbers){
+		var count=0 ;
+
 		if (/^([0-9])*$/.test($inputLengthNumbers) && $inputLengthNumbers!=0 && $($inputLengthNumbers).length!=0) {
 			$(this).attr("disabled", true);
 			while($inputLengthNumbers!=count){	
@@ -28,40 +73,28 @@ $(document).ready(function(){
 					if (ascii==13) { 
 			      var $inputFocus=$(this).next();
 			      $inputFocus.focus();   
-				  }   
+				  } 
 				});
 			}	
 		}else if($inputLengthNumbers==0){
-			alert("Ingrese numero");
+			alert("Ingrese numero entero positivo ");
+			$("#btn-add").attr("disabled", false);
 		}else{
-			alert("Ingrese numero");
+			alert("Ingrese numero entero positivo");
+			$("#btn-add").attr("disabled", false);
 		}
-
-		$("#ordenar").click(function(){
-			var $resultText=$(".result-text");
-			$(this).attr("disabled", true);
-			leerArray($inputLengthNumbers, index,array);
-		  ordenarAsc(array);
-		  $($resultText).show();
-			imprimir(array);
-			$(this).attr("disabled", false);
-		});
-		
-		$("#input-length-numbers").val(" ");
-	});
-
-	$btnClear.click(function(){
-		location.reload();
-	});
+	}
 
 	// funcion Leer Array
-	function leerArray(lengthArray,index,array){
-		while(lengthArray!=index){
+	function leerArray($inputLengthNumbers,index,array){
+
+		while($inputLengthNumbers!=index){
 			var id="#input-numbers"+index;
 			var $numberValue=parseInt($(id).val());
 			array[index]=$numberValue;
 			index++;
 	  }
+	  console.log("array"+array);
 	}
 
 	/*Ordenar número*/

@@ -61,10 +61,17 @@ label{
   background: transparent;
 }
 .results{
-	margin:2% 2%;
+	width: 5%;
+	height: 40px;
+	margin:3% 3%;
+	padding-top: 1%;
+	text-align: center;
 	display: inline-block;
+	vertical-align: middle;
 	-webkit-transition-delay: 30s; /* Safari */
   transition-delay: 30s;
+  border-radius: 100%;
+  background: #C0C0C0;
 }
 .result-text{
 	display: none;

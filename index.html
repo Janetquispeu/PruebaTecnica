@@ -12,29 +12,31 @@
 	<title>Evaluación Técnica- Grupo Comercio</title>
 </head>
 <body>
-	<h3>Ordenar de manera Ascendente</h3>
-	<section class="container">
-		<div class="row">
-			<div class="col-lg-6 col-md-4 col-sm-4 col-xs-12 label-text">
-				<label>Cantidad de números a ordenar:</label>
+	<div class="container-fluid">
+		<h3>Ordenar de manera Ascendente</h3>
+		<section class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-4 col-sm-4 col-xs-12 label-text">
+					<label>Cantidad de números a ordenar:</label>
+				</div>
+				<div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 input-number">
+					<input type="text" name="input-length-numbers" id="input-length-numbers">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 btn-add">
+					<button id="btn-add" class="btn btn-primary">Agregar</button>
+				</div>
 			</div>
-			<div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 input-number">
-				<input type="text" name="input-length-numbers" id="input-length-numbers">
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 btn-add">
-				<button id="btn-add" class="btn btn-primary">Agregar</button>
-			</div>
+		</section>
+		<div class="container-numbers">
+			<p>Ingrese conjunto de Números:</p>
 		</div>
-	</section>
-	<div class="container-numbers">
-		<p>Ingrese conjunto de Números:</p>
-	</div>
-	<div class="container-results">
-		<div class="result-text">Resultado:</div>
-	</div>
-	<div class="container-btn">
-		<button type="button" id="ordenar" class="btn btn-primary">Ordenar</button>
-		<button type="button" class="btn btn-primary" id="btn-clear">Limpiar</button>
+		<div class="container-results">
+			<div class="result-text">Resultado:</div>
+		</div>
+		<div class="container-btn">
+			<button type="button" id="ordenar" class="btn btn-primary">Ordenar</button>
+			<button type="button" class="btn btn-primary" id="btn-clear">Limpiar</button>
+		</div>
 	</div>
 
 	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>

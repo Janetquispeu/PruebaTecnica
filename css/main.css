@@ -1,11 +1,6 @@
-@import url('http://fonts.googleapis.com/css?family=Droid+Sans');
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans');
 @import url("https://fonts.googleapis.com/css?family=Quicksand");
 
-body{
-	background-image: url("../img/fondo4.jpg");
-  background-repeat:no-repeat;
-  background-size: cover;
-}
 h3, .container-btn{
 	margin-top: 3%;
 	text-align: center;
@@ -27,6 +22,12 @@ p, .result-text{
 label{
 	color: white;
 	font-weight: normal;
+}
+.container-fluid{
+	height: 100vh;
+	background-image: url("../img/fondo4.jpg");
+  background-repeat:no-repeat;
+  background-size: cover;
 }
 .label-text{
 	text-align: right;

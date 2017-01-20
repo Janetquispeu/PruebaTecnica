@@ -23,8 +23,8 @@ label{
 	color: white;
 	font-weight: normal;
 }
-.container-fluid{
-	height: 100vh;
+.contenedor{
+	height: 100vh !important;
 	background-image: url("../img/fondo4.jpg");
   background-repeat:no-repeat;
   background-size: cover;

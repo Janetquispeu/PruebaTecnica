@@ -1,0 +1,101 @@
+@import url('http://fonts.googleapis.com/css?family=Droid+Sans');
+@import url("https://fonts.googleapis.com/css?family=Quicksand");
+
+body{
+	/*background-image: url("../img/fondo.jpg");*/
+  background-repeat:no-repeat;
+  background-size: cover;
+}
+h3, .container-btn{
+	margin-top: 3%;
+	text-align: center;
+	font-family: 'Quicksand';
+}
+h3{
+	color: black;
+	font-size: 240%;
+	font-weight: bold;
+	text-shadow: 2px 2px #ff0000;
+}
+section{
+	margin-top: 5%;
+}
+p, .result-text{
+	color: black;
+	margin-left: 2%;
+}
+label{
+	color: black;
+	font-weight: normal;
+}
+.label-text{
+	text-align: right;
+	font-weight: normal;
+	font-family: 'Droid Sans';
+	font-size: 120%;
+}
+.input-number, .btn-add{
+	text-align: left;
+	font-family: 'Quicksand';
+	font-size: 110%;
+}
+.container-numbers, .container-results{
+	width: 60%;
+	margin-left:18%;
+	margin-top: 4%;
+	font-family: 'Droid Sans';
+	font-size: 120%;
+}
+.container-btn{
+	display: block;
+	margin-top: 3%;
+}
+.input-numbers{
+	width: 5%;
+	margin:2% 2%;
+	color: black;
+	border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 2px solid black;
+  background: transparent;
+}
+.results{
+	margin:2% 2%;
+	display: inline-block;
+	-webkit-transition-delay: 30s; /* Safari */
+  transition-delay: 30s;
+}
+.result-text{
+	display: none;
+}
+
+/*Responsive*/
+@media (min-width: 481px) and (max-width: 768px) {
+	.label-text, .input-number, .btn-add{
+		text-align: center;
+		margin:2% 0;
+	}
+}
+@media (max-width: 480px) {
+	
+	.label-text, .input-number, .btn-add{
+		text-align: center;
+		margin:2% 0;
+	}
+	.container-numbers, .container-results{
+		width: 100%;
+		margin: 0%;
+	}
+	p, .result-text{
+		margin: 0%;
+		padding: 8% 0 0 5%;
+	}
+	.input-numbers, .results{
+		margin: 5% 5%;
+	}
+	#ordenar{
+		margin-top: 5%;
+	}
+
+}

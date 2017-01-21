@@ -21,9 +21,9 @@ $(document).ready(function(){
 				var $resultText=$(".result-text");
 				$(this).attr("disabled", true);
 				leerArray($inputLengthNumbers, index,array);
-			  ordenarAsc(array);
-			  $($resultText).show();
-				imprimir(array);
+			  // ordenarAsc(array);
+			 //  $($resultText).show();
+				// imprimir(array);
 			});
 
 			if($inputLengthNumbers<0 || $inputLengthNumbers==0){
@@ -47,9 +47,9 @@ $(document).ready(function(){
 			var $resultText=$(".result-text");
 			$(this).attr("disabled", true);
 			leerArray($inputLengthNumbers, index,array);
-		  ordenarAsc(array);
-		  $($resultText).show();
-			imprimir(array);
+		  // ordenarAsc(array);
+		 //  $($resultText).show();
+			// imprimir(array);
 		});
 
 		$($inputLength).val(" ");
@@ -99,6 +99,29 @@ $(document).ready(function(){
 			array[index]=$numberValue;
 			index++;
 	  }
+	  validar(array,$inputLengthNumbers);
+	}
+
+	function validar(array,$inputLengthNumbers){
+		var $resultText=$(".result-text");
+		var a=array;
+		var indice=0;
+		var contador=0;
+		var iterar=parseInt($inputLengthNumbers/2);
+		for (var i=0; i<iterar; i++){
+			if(a[i]==a[$inputLengthNumbers-1]){
+				contador++;
+			}else{
+				contador++;
+			}
+		}
+		if(contador>1){
+			alert(" Los números ingresados no deben repetirse.")
+		}else{
+			ordenarAsc(array);
+			$($resultText).show();
+			imprimir(array);
+		}
 	}
 
 	/*Ordenar número*/

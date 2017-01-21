@@ -7,10 +7,12 @@ $(document).ready(function(){
   var $containerNumbers=$(".container-numbers");
   var $containerResults=$(".container-results");
   var $inputNumbers=$(".input-numbers");
+  var $resultText=$(".result-text");
+  var index=0;
+  var array=[];
 
   $inputLength.keydown(function(e){
-    var index=0;
-    var array=[];
+    
     var $inputLengthNumbers=parseInt($($inputLength).val());
     if(e.keyCode==13){
       createInput($inputLengthNumbers);
@@ -18,7 +20,6 @@ $(document).ready(function(){
       $(this).parent().next().children().attr("disabled", true);
 
       $btnOrdenar.click(function(){
-        var $resultText=$(".result-text");
         $(this).attr("disabled", true);
         leerArray($inputLengthNumbers, index,array);
       });
@@ -33,15 +34,12 @@ $(document).ready(function(){
 
   $btnAdd.click(function(){
     var $inputLengthNumbers=parseInt($($inputLength).val());
-    var index=0;
-    var array=[];
 
     $(this).attr("disabled", true);
     $(this).parent().prev().children().attr("disabled", true);
     createInput($inputLengthNumbers);
 
     $btnOrdenar.click(function(){
-      var $resultText=$(".result-text");
       $(this).attr("disabled", true);
       leerArray($inputLengthNumbers, index,array);
     });
@@ -97,7 +95,6 @@ $(document).ready(function(){
   }
 
   function validar(array,$inputLengthNumbers){
-    var $resultText=$(".result-text");
     var a=array;
     var iguales=0;
     var count=0;

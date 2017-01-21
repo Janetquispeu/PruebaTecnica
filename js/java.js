@@ -25,7 +25,6 @@ $(document).ready(function(){
 
       if($inputLengthNumbers<0 || $inputLengthNumbers==0){
         $(this).attr("disabled", false);
-        $(this).parent().next().children().attr("disabled", false);
       }
 
       $($inputLength).val(" ");
@@ -38,6 +37,7 @@ $(document).ready(function(){
     var array=[];
 
     $(this).attr("disabled", true);
+    $(this).parent().prev().children().attr("disabled", true);
     createInput($inputLengthNumbers);
 
     $btnOrdenar.click(function(){

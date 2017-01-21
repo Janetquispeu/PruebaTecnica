@@ -106,7 +106,7 @@ $(document).ready(function(){
     var iterar=parseInt($inputLengthNumbers);
     for (var i=0; i<iterar; i++){
       k++;
-      for(var j=k; j<(iterar-1);j++){
+      for(var j=k; j<iterar;j++){
         if(a[i]==a[j]){
           count++;
         }else{
